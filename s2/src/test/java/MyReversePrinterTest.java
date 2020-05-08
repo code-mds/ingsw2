@@ -6,7 +6,6 @@ import java.io.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MyReversePrinterTest {
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @BeforeEach
     void setUp() {
@@ -15,15 +14,15 @@ class MyReversePrinterTest {
 
     @Test
     void printData() throws IOException {
-        InputStream in = MyReversePrinter.class.getResourceAsStream("/text.txt");
+        InputStream in = MyList.class.getResourceAsStream("/text.txt");
         MyReversePrinter printer = new MyReversePrinter(in);
-        var list =  printer.loadData();
-        PrintStream stream = new PrintStream(outContent);
-        printer.printData(list, stream);
 
-        String result = "CCC" + System.lineSeparator() +
-                "BBB" + System.lineSeparator() +
-                "AAA" + System.lineSeparator();
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        printer.addOutputStream(new PrintStream(outContent));
+        printer.printData();
+
+        String sepator = System.lineSeparator();
+        String result = "CCC" + sepator + "BBB" + sepator + "AAA" + sepator;
         assertEquals(outContent.toString(), result);
     }
 
