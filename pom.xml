@@ -11,6 +11,7 @@
     <modules>
         <module>s1</module>
         <module>s2</module>
+        <module>basicmvc</module>
         <module>guiframework</module>
         <module>statedemo</module>
     </modules>
