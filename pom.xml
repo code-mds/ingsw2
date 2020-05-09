@@ -11,8 +11,9 @@
     <modules>
         <module>s1</module>
         <module>s2</module>
-        <module>basicmvc</module>
-        <module>guiframework</module>
-        <module>statedemo</module>
+        <module>lab/basicmvc</module>
+        <module>lab/guiframework</module>
+        <module>lab/statedemo</module>
+        <module>lab/e2eguitestingdemo</module>
     </modules>
 </project>
