@@ -1,3 +1,7 @@
+package printer;
+
+import mylist.MyIterator;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;

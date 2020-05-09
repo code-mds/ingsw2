@@ -1,3 +1,8 @@
+import converter.LowerCaseTransformer;
+import printer.MyForwardPrinter;
+import printer.MyPrinter;
+import printer.MyReversePrinter;
+
 import java.io.IOException;
 
 public class MyPrinterApp {

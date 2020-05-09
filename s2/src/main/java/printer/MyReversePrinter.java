@@ -1,3 +1,7 @@
+package printer;
+
+import mylist.MyIterator;
+
 import java.io.*;
 
 public class MyReversePrinter extends MyAbstractPrinter {

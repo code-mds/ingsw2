@@ -1,3 +1,7 @@
+package printer;
+
+import converter.LineTrasfomer;
+
 import java.io.IOException;
 import java.io.PrintStream;
 
