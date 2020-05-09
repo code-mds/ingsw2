@@ -11,14 +11,14 @@ public class DoneNothingEventTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void constructor0() {
-        new DoSomethingElseEvent(null);
+        new DoneNothingEvent(null);
     }
 
     @Test
     public void constructor1() {
         Model modelMock = Mockito.mock(Model.class);
 
-        DoSomethingElseEvent event = new DoSomethingElseEvent(modelMock);
+        DoneNothingEvent event = new DoneNothingEvent(modelMock);
         assertNotNull(event);
         assertTrue(event instanceof AbstractEvent);
         assertNotNull(event.getSource());

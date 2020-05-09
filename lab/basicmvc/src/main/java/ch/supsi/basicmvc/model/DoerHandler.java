@@ -3,8 +3,9 @@ package ch.supsi.basicmvc.model;
 
 public interface DoerHandler {
 
-    void doSomething();
+    void doNothing();
 
+    void doSomething();
     void doSomethingElse();
 
 }

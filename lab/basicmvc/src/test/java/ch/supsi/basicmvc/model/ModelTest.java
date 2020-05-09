@@ -1,15 +1,13 @@
 package ch.supsi.basicmvc.model;
 
 
-import ch.supsi.basicmvc.event.DoSomethingElseEvent;
+import ch.supsi.basicmvc.event.DoneNothingEvent;
 import ch.supsi.basicmvc.event.DoneSomethingEvent;
 import ch.supsi.basicmvc.event.HandledErrorEvent;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 import java.beans.PropertyChangeSupport;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 import static org.junit.Assert.*;
 
@@ -46,50 +44,32 @@ public class ModelTest {
 
     @Test
     public void doSomethingTest0() {
-        ByteArrayOutputStream myOut = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(myOut));
-
         Model model = new Model();
         PropertyChangeSupport pcsMock = Mockito.mock(PropertyChangeSupport.class);
         model.pcs = pcsMock;
 
         model.doSomething();
-        assertEquals("I am the model and I am doing something..." + System.lineSeparator(), myOut.toString());
         Mockito.verify(model.pcs, Mockito.times(1)).firePropertyChange(Mockito.any(DoneSomethingEvent.class));
-
-        System.setOut(System.out);
     }
 
     @Test
-    public void doSomethingElseTest0() {
-        ByteArrayOutputStream myOut = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(myOut));
-
+    public void doNothingTest0() {
         Model model = new Model();
         PropertyChangeSupport pcsMock = Mockito.mock(PropertyChangeSupport.class);
         model.pcs = pcsMock;
 
-        model.doSomethingElse();
-        assertEquals("I am the model and I am doing something else..." + System.lineSeparator(), myOut.toString());
-        Mockito.verify(model.pcs, Mockito.times(1)).firePropertyChange(Mockito.any(DoSomethingElseEvent.class));
-
-        System.setOut(System.out);
+        model.doNothing();
+        Mockito.verify(model.pcs, Mockito.times(1)).firePropertyChange(Mockito.any(DoneNothingEvent.class));
     }
 
     @Test
     public void handleErrorTest0() {
-        ByteArrayOutputStream myOut = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(myOut));
-
         Model model = new Model();
         PropertyChangeSupport pcsMock = Mockito.mock(PropertyChangeSupport.class);
         model.pcs = pcsMock;
 
         model.handleError();
-        assertEquals("I am the model and I am handling an error..." + System.lineSeparator(), myOut.toString());
         Mockito.verify(model.pcs, Mockito.times(1)).firePropertyChange(Mockito.any(HandledErrorEvent.class));
-
-        System.setOut(System.out);
     }
 
 }

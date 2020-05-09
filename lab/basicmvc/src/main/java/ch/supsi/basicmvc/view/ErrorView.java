@@ -15,7 +15,7 @@ public class ErrorView extends AbstractView {
     @Override
     public void propertyChange(PropertyChangeEvent event) {
         if (event instanceof HandledErrorEvent) {
-            System.out.println(this.getClass().getSimpleName() + "...an error was handled!");
+            System.err.println(this.getClass().getSimpleName() + "...an error was handled!");
 
         } else {
             // any other event is not for me ... so I discard it and do nothing.

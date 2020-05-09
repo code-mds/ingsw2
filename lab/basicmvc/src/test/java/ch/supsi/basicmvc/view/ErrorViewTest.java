@@ -37,22 +37,28 @@ public class ErrorViewTest {
     @Test
     public void propertyChange0() {
         ByteArrayOutputStream myOut = new ByteArrayOutputStream();
+        ByteArrayOutputStream myErr = new ByteArrayOutputStream();
 
         System.setOut(new PrintStream(myOut));
+        System.setErr(new PrintStream(myErr));
 
         ErrorView view = new ErrorView(null);
         view.propertyChange(null);
 
         assertEquals("", myOut.toString());
+        assertEquals("", myErr.toString());
 
         System.setOut(System.out);
+        System.setErr(System.err);
     }
 
     @Test
     public void propertyChange1() {
         ByteArrayOutputStream myOut = new ByteArrayOutputStream();
+        ByteArrayOutputStream myErr = new ByteArrayOutputStream();
 
         System.setOut(new PrintStream(myOut));
+        System.setErr(new PrintStream(myErr));
 
         PropertyChangeEvent eventMock = Mockito.mock(DoneSomethingEvent.class);
 
@@ -60,6 +66,7 @@ public class ErrorViewTest {
         view.propertyChange(eventMock);
 
         assertEquals("", myOut.toString());
+        assertEquals("", myErr.toString());
 
         System.setOut(System.out);
         System.setErr(System.err);
@@ -68,17 +75,21 @@ public class ErrorViewTest {
     @Test
     public void propertyChange2() {
         ByteArrayOutputStream myOut = new ByteArrayOutputStream();
+        ByteArrayOutputStream myErr = new ByteArrayOutputStream();
 
         System.setOut(new PrintStream(myOut));
+        System.setErr(new PrintStream(myErr));
 
         PropertyChangeEvent eventMock = Mockito.mock(HandledErrorEvent.class);
 
         ErrorView view = new ErrorView(null);
         view.propertyChange(eventMock);
 
-        assertEquals("ErrorView...an error was handled!" + System.lineSeparator(), myOut.toString());
+        assertEquals("", myOut.toString());
+        assertEquals("ErrorView...an error was handled!\n", myErr.toString());
 
         System.setOut(System.out);
+        System.setErr(System.err);
     }
 
 }
