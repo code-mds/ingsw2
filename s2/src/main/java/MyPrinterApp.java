@@ -18,6 +18,7 @@ public class MyPrinterApp {
         printer = new MyForwardPrinter(path);
         printer.addTransformer(new LowerCaseTransformer());
         printer.addOutputStream(System.out);
+        printer.addOutputStream(System.err);
         printer.printData();
 
     }
