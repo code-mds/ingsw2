@@ -1,3 +1,3 @@
-public interface ITear {
+public interface ITire {
     double getWeight();
 }

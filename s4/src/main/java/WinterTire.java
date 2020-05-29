@@ -1,4 +1,4 @@
-public class WinterTear implements ITear {
+public class WinterTire implements ITire {
     static double WEIGHT = 15;
 
     @Override

@@ -4,7 +4,7 @@ public class Wheel {
     static double WEIGHT = 50;
 
     @Inject
-    ITear tear;
+    ITire tear;
 
     public double getWeight() {
         return WEIGHT + tear.getWeight();

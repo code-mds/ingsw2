@@ -3,7 +3,7 @@ import com.google.inject.Injector;
 
 public class MainProgram {
     public static void main(String... args) {
-        Injector injector = Guice.createInjector(new CarModule());
+        Injector injector = Guice.createInjector(new CarModule(new WinterTireModule()));
         Car car = injector.getInstance(Car.class);
         System.out.println("Peso macchina:" + car.getWeight());
     }

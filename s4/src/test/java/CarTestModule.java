@@ -4,6 +4,11 @@ import com.google.inject.Injector;
 import com.google.inject.Provides;
 
 public class CarTestModule extends AbstractModule {
+    private AbstractModule tireModule;
+    public CarTestModule(AbstractModule tireModule) {
+        this.tireModule = tireModule;
+    }
+
     @Override
     protected void configure() {
         bind(IEngine.class).to(MockEngine.class);
@@ -12,7 +17,7 @@ public class CarTestModule extends AbstractModule {
 
     @Provides
     Wheel[] provideWheels (){
-        Injector injector = Guice.createInjector(new TearModule());
+        Injector injector = Guice.createInjector(tireModule);
         Wheel[] wheels = new Wheel[4];
         for (int i = 0; i < 4; i++) {
             wheels[i] = injector.getInstance(Wheel.class);

@@ -1,4 +1,4 @@
-public class SummerTear implements ITear {
+public class SummerTire implements ITire {
     static double WEIGHT = 10;
 
     @Override
