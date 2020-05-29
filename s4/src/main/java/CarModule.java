@@ -1,4 +1,6 @@
 import com.google.inject.AbstractModule;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import com.google.inject.Provides;
 
 public class CarModule extends AbstractModule {
@@ -10,6 +12,11 @@ public class CarModule extends AbstractModule {
 
     @Provides
     Wheel[] provideWheels() {
-        return new Wheel[] { new Wheel(), new Wheel(), new Wheel(), new Wheel() };
+        Injector injector = Guice.createInjector(new TearModule());
+        Wheel[] wheels = new Wheel[4];
+        for (int i = 0; i < 4; i++) {
+            wheels[i] = injector.getInstance(Wheel.class);
+        }
+        return wheels;
     }
 }

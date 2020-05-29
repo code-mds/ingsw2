@@ -10,7 +10,11 @@ class CarTest {
     void getWeight() {
         Injector injector = Guice.createInjector(new CarTestModule());
         Car carTest = injector.getInstance(Car.class);
-        double expected = MockEngine.WEIGHT + MockBody.WEIGHT + Interior.WEIGHT + Frame.WEIGHT + Wheel.WEIGHT * 4;
+        double expected = MockEngine.WEIGHT +
+                MockBody.WEIGHT +
+                Interior.WEIGHT +
+                Frame.WEIGHT +
+                4 * (Wheel.WEIGHT + WinterTear.WEIGHT);
         assertEquals(expected, carTest.getWeight());
     }
 }
