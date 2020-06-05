@@ -16,5 +16,6 @@
         <module>lab/statedemo</module>
         <module>lab/e2eguitestingdemo</module>
         <module>s4</module>
+        <module>s5</module>
     </modules>
 </project>
