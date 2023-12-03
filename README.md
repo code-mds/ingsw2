@@ -1,2 +1,2 @@
-# ingsw2
-Esercizi Ing SW2
+# SUPSI - Design Patterns with Java
+Esercizi Ingegneria Software 2
